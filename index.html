@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toxic Code — M. Mir Shekar</title>
+<style>
+  :root {
+    --blue-dark:  #1F3864;
+    --blue-mid:   #2E5796;
+    --blue-light: #2E75B6;
+    --accent:     #C55A11;
+    --bg:         #FAFAFA;
+    --text:       #1A1A1A;
+    --muted:      #555555;
+    --box-blue:   #EBF3FB;
+    --box-amber:  #FFF9E6;
+    --box-green:  #F0F7F0;
+    --box-red:    #FEF3E2;
+    --box-gray:   #F5F5F5;
+    --border:     #CCCCCC;
+    --max-width:  780px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  /* ── HEADER BAND ── */
+  .header-band {
+    background: var(--blue-dark);
+    color: #fff;
+    padding: 6px 0;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: .04em;
+  }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── TITLE BLOCK ── */
+  .title-block {
+    background: var(--box-blue);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 40px 30px;
+    margin: 40px 0 28px;
+  }
+  .title-block h1 {
+    font-family: Arial, sans-serif;
+    font-size: 46px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .title-block .subtitle {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--blue-mid);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .title-block .byline {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .box {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.65;
+  }
+  .box-blue   { background: var(--box-blue); }
+  .box-amber  { background: var(--box-amber); }
+  .box-green  { background: var(--box-green); }
+  .box-red    { background: var(--box-red); }
+  .box-gray   { background: var(--box-gray); }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin: 52px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--blue-dark);
+  }
+  h3 {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--blue-mid);
+    margin: 32px 0 10px;
+  }
+
+  /* ── PARAGRAPHS ── */
+  p { margin-bottom: 18px; }
+
+  /* ── SECTION NUMBERS ── */
+  .section-num {
+    display: inline-block;
+    background: var(--blue-dark);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+    letter-spacing: .04em;
+  }
+
+  /* ── PULL QUOTE ── */
+  blockquote {
+    border-left: 4px solid var(--blue-light);
+    margin: 28px 0;
+    padding: 12px 20px;
+    background: var(--box-blue);
+    font-style: italic;
+    color: var(--blue-dark);
+    font-size: 16px;
+  }
+
+  /* ── REFERENCES ── */
+  .references h2 { font-size: 18px; }
+  .ref-group { margin-bottom: 24px; }
+  .ref-group h3 {
+    font-size: 14px;
+    color: var(--blue-dark);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+  }
+  .ref-group p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .ref-group a { color: var(--blue-light); text-decoration: none; }
+  .ref-group a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .title-block { padding: 24px 20px; }
+    .title-block h1 { font-size: 32px; }
+    h2 { font-size: 18px; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header-band">Toxic Code &nbsp;|&nbsp; M. Mir Shekar &nbsp;|&nbsp; 2026 &nbsp;|&nbsp; Pre-print for Public Distribution</div>
+
+<div class="wrapper">
+
+  <!-- TITLE -->
+  <div class="title-block">
+    <h1>Toxic Code</h1>
+    <p class="subtitle">The Toxic Supply Chain of Artificial Intelligence, a Window That Has Opened, and a Choice That Awaits</p>
+    <p class="byline">M. Mir Shekar &nbsp;|&nbsp; 2026</p>
+  </div>
+
+  <!-- AUTHOR NOTE -->
+  <div class="box box-amber">
+    <strong>Author's Note:</strong> What follows is my personal view, written partly from lived experience. This text does not represent any party, group, or political movement.
+  </div>
+
+  <!-- ABSTRACT -->
+  <div class="box box-green">
+    <strong>In Brief:</strong> The artificial intelligence transforming our world is built on a hidden infrastructure: cobalt extracted by children in Congo, nickel refined with coal in Indonesia's rainforests, water consumed at the scale of cities to cool server farms, and energy whose true cost is paid by people who will never see a share of its profits. This pattern — which history has witnessed before in salt, gold, and oil — is what this essay calls <em>toxic code.</em> This essay argues that today, for the first time, a genuine opportunity stands before the West: an Iran whose people are on the threshold of transition. A free and democratic Iran can be the first link in the AI supply chain where economic interest, environmental protection, and ethics move in the same direction. This window will not stay open forever.
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2><span class="section-num">ONE</span> Toxic Code — An Architecture Corrupted From Its Foundation</h2>
+
+  <h3>1.1 — The Battery That Made the World Possible, and the Deal Behind It</h3>
+  <p>In 1991, the lithium-ion battery was commercialized for the first time. This battery quite literally made the modern world possible: from the iPhone to the electric vehicle, from the laptop to the data center where AI models are trained. But Nicolas Niarchos, a journalist who spent years tracking this supply chain in the field, has called it <em>the dirtiest supply chain on Earth.</em></p>
+  <p>This label is not an exaggeration. The raw materials of this battery — lithium, cobalt, nickel, graphite — come from corners of the world where labor law is not enforced, environmental standards are not respected, and the right to protest does not exist. Humanity has made a Faustian bargain: cleaner energy at home, in exchange for pollution and suffering elsewhere.</p>
+
+  <h3>1.2 — Congo: Seventy Percent of the World's Cobalt, by Children's Hands</h3>
+  <p>Odilon Kajumba was a thirty-two-year-old man from Kolwezi in Congo. Kolwezi sits in the province of Katanga — the place from which more than seventy percent of the world's cobalt originates. Cobalt is the element that stabilizes the lithium-ion battery; without it, the battery becomes unstable and poses a fire risk.</p>
+  <p>A significant portion of this cobalt is extracted by artisanal miners — including children — working without safety equipment in tunnels that can collapse at any moment. The major technology companies know this. It has been reported. Reform has been promised. But the structure has not changed — because this cobalt is cheap, and its cheapness is precisely because its extractors have no legal tools to defend themselves.</p>
+
+  <h3>1.3 — Indonesia: Forests That Burned for Nickel</h3>
+  <p>Bahodopi, a town on the Indonesian island of Sulawesi, had only a few old motorcycles until 2013. Today it is one of the world's largest nickel extraction centers — nickel used for the batteries of Tesla and Volvo electric vehicles.</p>
+  <p>Refining this nickel required cheap electricity. The electricity came from coal-fired power plants. By 2021, the complex was burning nine million metric tons of coal per year. Surrounding forests were destroyed. Farmers who had worked the land for generations were displaced.</p>
+  <div class="box box-red">The electric car moving silently through Berlin or Paris has exported its emissions to the forests of Indonesia. The pollution has not been eliminated — only moved. This, in one sentence, is the nature of toxic code.</div>
+
+  <h3>1.4 — Water: The Source of Life Sacrificed for Servers</h3>
+  <p>Data centers need water for cooling — not little, but at the scale of a city. A large data center can consume billions of liters of water annually, drawn from sources shared with local agriculture and drinking supply.</p>
+  <p>In Iowa, in Spain, in Chile — local communities are competing with technology companies for water. This competition is unequal: companies have capital and lobbying power; local farmers have only water. And with every new data center built to train larger AI models, this pressure grows.</p>
+
+  <h3>1.5 — AI: The Layer That Amplified Everything</h3>
+  <p>If the lithium-ion battery was a Faustian bargain, artificial intelligence has raised that bargain to a power. Training a large language model consumes electricity equivalent to a medium-sized city. Its hardware — GPUs, memory, processors — requires rare earth elements that often come from the same mines that have neither labor law nor environmental standards.</p>
+  <p>GPT, Gemini, Claude — every answer these models give rides on this hidden infrastructure. This is <em>toxic code</em>: not a conspiracy, but an architecture written from the ground up with the logic of "the cheapest source, wherever it may be."</p>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2><span class="section-num">TWO</span> Why Fixing This Code Has Failed Every Time</h2>
+
+  <h3>2.1 — The Kimberley Process: A Pattern of Failure</h3>
+  <p>In 2003, the world decided to solve the blood diamond problem in Sierra Leone. The Kimberley Process was created: certificates of origin, international oversight, corporate commitments. On paper, the design was logical.</p>
+  <p>Fifteen years later, independent reports showed blood diamonds were still flowing through the same supply chain — only with a layer of paper on top. The protocol did not fail because it was poorly designed. It failed because the structure of incentives was never touched. Those who were supposed to implement it saw their profit in the continuation of the flow, not in stopping it.</p>
+  <div class="box box-red">The AI supply chain in 2026 stands precisely where diamonds stood in 2003. Companies publish sustainability reports, pledge responsible sourcing, attach ESG labels. But the underlying equation — the one that converts cheap mining into acceptable profit — remains untouched.</div>
+
+  <h3>2.2 — Two Symmetrical Errors</h3>
+  <p>Against this reality, two opposing approaches have both failed.</p>
+  <p>The first: <em>voluntary transparency.</em> Companies declare they will obtain certificates and audit their supply chains. This is the Kimberley pattern — a layer of paper over an unchanged structure.</p>
+  <p>The second: <em>sanctions and pressure.</em> This has also proven ineffective. Pressure without offering an alternative path merely shifts suppliers — from one contaminated source to another, usually with less oversight.</p>
+  <div class="box box-green">What has never been tried is genuine alignment of the incentive structure. Not imposing ethics on interests, not providing ethical justification for interests — but a redesign in which the ethical choice is simultaneously the more profitable choice. This redesign requires a new player.</div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2><span class="section-num">THREE</span> Iran — Where the Lines Converge</h2>
+
+  <h3>3.1 — Not From Outside, But From Within the Chain</h3>
+  <p>Iran enters this narrative not as a separate political topic — but from within the supply chain itself. Because Iran has precisely what the AI supply chain needs: strategic minerals, energy capacity, the capacity to produce desalinated water from the sea, and an educated population.</p>
+  <p>This combination does not exist in any other country in the region in this form. And this is what transforms Iran from a political subject into a structural variable in the equation of the AI supply chain.</p>
+
+  <h3>3.2 — What Iran Has and the Chain Needs</h3>
+  <p>Copper, zinc, chromite, manganese, and most importantly rare earth elements — Iran is one of the world's richest countries in strategic mineral reserves. These metals play a key role in the battery and AI hardware supply chain. But due to sanctions and international isolation, these reserves have been effectively severed from the global chain.</p>
+  <p>The result of this severance: China today controls more than eighty percent of global rare earth processing. This concentration is an economic and strategic security risk for the West — one that with every political cycle in Beijing can be turned into leverage.</p>
+  <p>Iran also has high renewable energy potential: abundant sun in the central desert, wind along coasts and highlands, geothermal capacity. This energy could power regional data centers with cleaner electricity — while today those same data centers elsewhere run on coal.</p>
+
+  <h3>3.3 — But This Iran, Not That Iran</h3>
+  <p>Iran under the Islamic Republic connects none of this capacity to the transparent global chain. Its mines operate under a government that is not accountable. Its water — as Lake Urmia and the Zayandeh River have shown — is being destroyed under policies without accountability. Its renewable energy potential, in the absence of development-oriented governance, sits idle.</p>
+  <p>Simply stated: Iran under the current government cannot be <em>clear code</em> — not because of geography or resources, but because of a power structure that does not accept transparency, accountability, or international standards.</p>
+  <div class="box box-green">Here is where the bridge is built: not "Iran must be free because it is the right thing to do" — but "a free Iran is the first genuinely clean link in the AI supply chain." This is not a values argument. It is a structural argument.</div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2><span class="section-num">FOUR</span> A Window That Has Opened</h2>
+
+  <h3>4.1 — This Moment Does Not Repeat</h3>
+  <p>In Iran's contemporary history, there have been moments when real change seemed possible. Each time, the window closed or was lost. But what is different today is not only the intensity of social pressure from within Iran — it is the coincidence of this moment with a structural need from outside that did not previously exist.</p>
+  <p>For the first time in history, the West faces a specific problem for which a free Iran can be part of the answer: the dangerous dependence of the AI supply chain on non-transparent and concentrated sources. This coincidence — external need and internal opportunity — is what creates a window.</p>
+
+  <h3>4.2 — What Makes a Free Iran 'Clear Code'</h3>
+  <p>A democratic Iran with independent judicial institutions, verifiable labor standards, and commitment to environmental transparency could provide something none of the current suppliers in this chain provide: a source of strategic materials that is simultaneously accountable, transparent, and aligned with the values of target markets.</p>
+  <p>The major technology companies — Apple, Google, Microsoft, Nvidia — are all under increasing pressure from shareholders and regulators for "responsible sourcing." They are looking for a supplier they can mention with pride in their annual reports. A free Iran can be this supplier — not as a cheap source, but as a value-adding partner. This differs fundamentally from the colonial model, and it is precisely this difference that makes it sustainable.</p>
+
+  <h3>4.3 — This Is Europe's Choice, Not Iran's</h3>
+  <p>The people of Iran have made their choice. The generation that gave their lives on the streets of Tehran, Kermanshah, and Zahedan has shown, more clearly than any diplomatic document, which future they are moving toward.</p>
+  <p>What awaits a choice is the policy of Europe and America. This choice is between two paths: continuing the same passive policy that is neither ethical nor strategic — or taking a step that is simultaneously both.</p>
+  <div class="box box-red">If the West loses this window, it is not only a lost political opportunity — the AI supply chain will continue running on toxic code for another decade. This time, no one can claim they did not know. The window was open.</div>
+
+  <h3>4.4 — Three Levels of Action</h3>
+  <p><strong>Level One — Market access standards:</strong> Europe can condition mineral imports on specific labor and environmental standards. The "Brussels Effect" in data has proven this model works. Companies investing in a free Iran gain competitive advantage in access to the European market.</p>
+  <p><strong>Level Two — Relationship with the Iranian people, not the government:</strong> Supporting free Persian-language media, facilitating access to education, maintaining communication channels with civil society. This is an investment in future credibility — credibility that cannot be bought once the window has closed.</p>
+  <p><strong>Level Three — Readiness to accept a democratic Iran as strategic partner:</strong> Not in some vague future — but from today. Readiness so that the moment transition occurs, a free Iran is accepted as a strategic partner in the AI supply chain.</p>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2><span class="section-num">CONCLUSION</span> Clear Code</h2>
+
+  <p>This essay began with Congo's cobalt. With children working in unsecured tunnels so that iPhone screens stay lit. With Indonesia's forests that burned for nickel. With water sacrificed to cool servers.</p>
+  <p>This is <em>toxic code</em> — not a conspiracy, but an architecture in which the structure of incentives has kept profit separate from ethics. And every time the world has tried to fix this architecture with declarations and certificates, it has failed — because the structure was never touched.</p>
+  <p>Today, for the first time, a genuine opportunity stands before the West. An Iran whose people are on the threshold of transition holds capacities that are precisely what the AI supply chain needs to become clean. This coincidence is a window.</p>
+  <p>Windows of this kind close. Sometimes with violence. Sometimes with indifference. But they close.</p>
+  <p>Europe and America have a choice in this moment: continue a policy that is neither ethical nor strategic — or take a step that is simultaneously both. This step, in the view of this essay, is not a risk. It is an investment.</p>
+
+  <div class="box box-green">A free and democratic Iran will be the first link in the AI supply chain where economic interest, environmental protection, and ethics move in the same direction. This is <em>clear code.</em> And this is the most accessible opportunity the West has for aligning interest with ethics in the age of artificial intelligence. A large step for the future of the West, and a small step in the path toward the elevation of ethics in global politics.</div>
+
+  <blockquote>"We do not believe in miracles. We believe in the path. And the path, before it is too late, must be chosen." — M. Mir Shekar</blockquote>
+
+  <!-- ═══════════════════════════════════ -->
+  <div class="references">
+  <h2>References</h2>
+
+  <div class="ref-group">
+    <h3>Mineral Supply Chain and Batteries</h3>
+    <p>Nicolas Niarchos — <em>The Elements of Power: A Story of War, Technology, and the Dirtiest Supply Chain on Earth</em> (2025)</p>
+    <p>Global Witness — Kimberley Process: <a href="https://www.globalwitness.org/en/campaigns/conflict-diamonds">globalwitness.org</a></p>
+    <p>USGS — Critical Minerals Yearbook: <a href="https://www.usgs.gov/centers/national-minerals-information-center">usgs.gov</a></p>
+  </div>
+
+  <div class="ref-group">
+    <h3>AI, Energy and Water</h3>
+    <p>IEA — Electricity 2024: <a href="https://www.iea.org/reports/electricity-2024">iea.org</a></p>
+    <p>Goldman Sachs — AI Power Demand: <a href="https://www.goldmansachs.com/insights/articles/AI-poised-to-drive-160-increase-in-power-demand">goldmansachs.com</a></p>
+    <p>Nature — Water usage in data centers: <a href="https://www.nature.com/articles/s41545-021-00101-w">nature.com</a></p>
+  </div>
+
+  <div class="ref-group">
+    <h3>The Brussels Effect and Trade Standards</h3>
+    <p>Anu Bradford — <em>The Brussels Effect</em>, Columbia University Press: <a href="https://cup.columbia.edu/book/the-brussels-effect/9780190088583">cup.columbia.edu</a></p>
+    <p>EU — Critical Raw Materials Act: <a href="https://single-market-economy.ec.europa.eu/sectors/raw-materials/areas-specific-interest/critical-raw-materials_en">ec.europa.eu</a></p>
+  </div>
+
+  <div class="ref-group">
+    <h3>Iran: Resources and Environmental Crisis</h3>
+    <p>USGS — Iran Mineral Resources: <a href="https://www.usgs.gov">usgs.gov</a></p>
+    <p>UNEP — Lake Urmia Restoration: <a href="https://www.unep.org">unep.org</a></p>
+    <p>Nature — Iran water crisis: <a href="https://www.nature.com/articles/d41586-018-03300-2">nature.com</a></p>
+    <p>World Bank — Iran Renewable Energy Potential: <a href="https://data.worldbank.org/country/IR">worldbank.org</a></p>
+  </div>
+
+  <div class="ref-group">
+    <h3>Iran Human Rights</h3>
+    <p>Human Rights Watch — Iran 2026: <a href="https://www.hrw.org/middle-east/n-africa/iran">hrw.org</a></p>
+    <p>Amnesty International — Iran: <a href="https://www.amnesty.org/en/location/middle-east-and-north-africa/iran">amnesty.org</a></p>
+    <p>HRANA: <a href="https://www.iranhumanrights.org">iranhumanrights.org</a></p>
+  </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p><em>Methodological Disclosure: The core ideas, historical reasoning, and all substantive decisions in this essay were developed and refined by the author. AI writing tools were used as an assistive instrument in the drafting and formatting process.</em></p>
+    <br>
+    <p>Copyright &copy; 2026 by M. Mir Shekar. All rights reserved.</p>
+    <p>— End of Document — Pre-print for Public Distribution</p>
+  </div>
+
+</div><!-- /wrapper -->
+</body>
+</html>
